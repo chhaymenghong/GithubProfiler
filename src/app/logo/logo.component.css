@@ -1,0 +1,9 @@
+#logo {
+  text-align: center;
+}
+#logo img {
+  border-radius: 50%;
+  border: 20px solid rgba(41, 121, 158, .3);
+  max-width:20%;
+  max-height:20%;
+}

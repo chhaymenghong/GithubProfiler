@@ -1,0 +1,38 @@
+<div class="col-lg-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">User information</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-lg-12">
+          <div *ngIf="isLoading | async" [ngStyle]="{'text-align':'center'}">
+            <i class="fa fa-spinner fa-spin" [ngStyle]="{'font-size':'100px', 'color':'#8a6c6c'}"></i>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!(isLoading | async)">
+        <div *ngFor="let u of user | async" >
+          <div class="row">
+              <div class="col-lg-4">
+                <a [href]="u.profileUrl" target="_blank">
+                  <img [ngStyle]="{'max-width':'60%', 'max-height':'60%'}" class="img-thumbnail img-reponsive" [src]="u.avatar_url" alt="">
+                </a>
+              </div>
+              <div class="col-lg-8">
+                <div class="stats">
+                  <span class="label label-primary">following: {{u.following}}</span>
+                  <span class="label label-success">followers: {{u.followers}}</span>
+                </div>
+                <br>
+                <ul class="list-group">
+                  <li class="list-group-item"><strong>Username: </strong>{{u.name}}</li>
+                  <li class="list-group-item"><strong>Location: </strong>{{u.location}}</li>
+                  <li class="list-group-item"><strong>Email: </strong>{{u.email}}</li>
+                  <li class="list-group-item"><strong>Member Since: </strong>{{u.memberSince}}</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

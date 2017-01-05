@@ -11,6 +11,7 @@ import { SearchService } from './search.service';
 import { UserComponent } from './user/user.component';
 import { RepositoryComponent } from './repository/repository.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PieChartComponent } from './pie-chart/pie-chart.component';
     SearchComponent,
     UserComponent,
     RepositoryComponent,
-    PieChartComponent
+    PieChartComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

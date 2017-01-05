@@ -14,8 +14,6 @@ export class PieChartComponent implements OnInit {
 
   ngOnInit() {
     this._searchService.data$.subscribe( data => this._createChartOption( data ) );
-
-
   }
   private _createChartOption( data ) {
     this.options = {

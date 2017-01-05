@@ -94,11 +94,7 @@ export class SearchService {
   }
 
   private _makeHttpRequest( path: string ) : any {
-    let params = new URLSearchParams();
-    params.set('client_id', environment.clientId );
-    params.set('client_secret', environment.clientSecret );
-
-    return this._http.get( `${environment.baseUrl}${path}`, { search: params })
+    return this._http.get( `${environment.baseUrl}${path}`)
       .map( resp => resp.json() );
   }
 

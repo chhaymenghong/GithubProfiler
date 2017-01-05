@@ -12,11 +12,13 @@
           <div *ngFor="let repo of listOfRespos | async">
             <li class="list-group-item">
               <div class="row">
-                <div class="col-lg-10 col-md-10">
+                <div class="col-lg-8 col-md-8">
                   <a [href]="repo.repoUrl" target="_blank">{{repo.name}}</a>
                 </div>
                 <div class="col-lg-2 col-md-2">
                   <span class="label label-primary">Watchers: {{repo.watchers}}</span>
+                </div>
+                <div class="col-lg-2 col-md-2">
                   <span class="label label-success">Forks: {{repo.forks}}</span>
                 </div>
               </div>

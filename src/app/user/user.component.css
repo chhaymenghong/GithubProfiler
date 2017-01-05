@@ -1,0 +1,10 @@
+.userImg {
+  max-width: 60%;
+  max-height: 60%;
+  border: 20px dashed #8a6c6c;
+  -webkit-transition: border 300ms ease-out;
+}
+
+.userImg:hover {
+  border: 30px dashed #ffa1a1;
+}

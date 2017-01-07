@@ -35,11 +35,10 @@ export class SearchService {
 
   public getUserRepos( username: string ) {
     this.isLoadingUser$.next(true);
-    console.log('loading it true');
     this._makeHttpRequest( `users/${username}/repos`, {page_size: 100} )
       .subscribe(
         allReposJson => {
-          console.log(allReposJson);
+          console.log( allReposJson );
           var repos : Repository[] = allReposJson.map( eachRepoJson => {
             return new Repository( eachRepoJson );
           });
@@ -100,7 +99,6 @@ export class SearchService {
 
     return this._http.get( `${environment.baseUrl}${path}`, { search: searchParam})
       .map( resp => {
-        console.log( resp );
         return resp.json();
        } );
   }

@@ -4,9 +4,12 @@ export class User {
   public email: string;
   public followers: number;
   public following: number;
+  public public_repos: number;
+  public public_gists: number;
   public location: string;
   public profileUrl: string;
-  public memberSince: string
+  public memberSince: string;
+
   public readonly UNKNOWN: string = 'Unknown';
 
   constructor( json: any ) {
@@ -18,5 +21,7 @@ export class User {
     this.location = json.location || this.UNKNOWN;;
     this.profileUrl = json.html_url;
     this.memberSince = json.created_at;
+    this.public_repos = json.public_repos;
+    this.public_gists = json.public_gists;
   }
 }

@@ -36,7 +36,7 @@ export class SearchService {
   public getUserRepos( username: string ) {
     this.isLoadingUser$.next(true);
     console.log('loading it true');
-    this._makeHttpRequest( `users/${username}/repos` )
+    this._makeHttpRequest( `users/${username}/repos`, {page_size: 100} )
       .subscribe(
         allReposJson => {
           console.log(allReposJson);
@@ -90,9 +90,15 @@ export class SearchService {
       this.data$.next( data );
   }
 
-  private _makeHttpRequest( path: string ) : any {
-    // add optionial param to the parameter: page_size...
-    return this._http.get( `${environment.baseUrl}${path}`)
+  private _makeHttpRequest( path: string, params? ) : any {
+    var searchParam = new URLSearchParams();
+    if ( params ) {
+      for ( let key in params ) {
+        searchParam.set(key, params[key]);
+      }
+    }
+
+    return this._http.get( `${environment.baseUrl}${path}`, { search: searchParam})
       .map( resp => {
         console.log( resp );
         return resp.json();

@@ -9,7 +9,9 @@ import { SearchService } from '../search.service';
 })
 export class PieChartComponent implements OnInit {
   public options;
+  public isLoading;
   constructor( private _searchService: SearchService ) {
+    this.isLoading = _searchService.isLoadingRepos$;
   }
 
   ngOnInit() {

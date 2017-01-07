@@ -11,11 +11,10 @@ export class SearchService {
   public user$ : BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   public userRepos$ : BehaviorSubject<Repository[]> = new BehaviorSubject<Repository[]>([]);
   public username$ : BehaviorSubject<string> = new BehaviorSubject<string>('chhaymenghong');
+  public data$: Subject<Object> = new Subject<Object>();
 
   public isLoadingUser$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoadingRepos$ : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public data$: Subject<Object> = new Subject<Object>();
-  public data;
 
   constructor( private _http: Http ) {
     this.username$
@@ -89,13 +88,15 @@ export class SearchService {
           data.push({name: key, y: (100 * result[key])/totalRepos})
       }
       this.data$.next( data );
-      this.data = data;
-
   }
 
   private _makeHttpRequest( path: string ) : any {
+    // add optionial param to the parameter: page_size...
     return this._http.get( `${environment.baseUrl}${path}`)
-      .map( resp => resp.json() );
+      .map( resp => {
+        console.log( resp );
+        return resp.json();
+       } );
   }
 
 }

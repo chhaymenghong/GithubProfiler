@@ -3,7 +3,10 @@
     <div class="panel-heading">Languages Profile</div>
       <div class="panel-body">
         <div class="row">
-          <chart [options]="options"></chart>
+          <app-spinner [isLoading]="isLoading"></app-spinner>
+          <div *ngIf="!( isLoading | async )">
+              <chart [options]="options"></chart>
+          </div>
         </div>
       </div>
     </div>

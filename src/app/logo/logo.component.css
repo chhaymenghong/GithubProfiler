@@ -5,8 +5,10 @@
   background-color: #8a6c6c;
   border-radius: 50%;
   border: 20px dashed white;
-  max-width:20%;
-  max-height:20%;
+  width: 100%;
+  height: 100%;
+  max-width:200px;
+  max-height:200px;
   -webkit-transition : border 300ms ease-out;
   -moz-transition : border 500ms ease-out;
   -o-transition : border 500ms ease-out;
